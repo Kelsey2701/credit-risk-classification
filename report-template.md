@@ -1,31 +1,44 @@
 # Module 12 Report Template
-
 ## Overview of the Analysis
+In this analysis, the goal was to build machine learning models for credit risk classification using historical lending activity data. The purpose was to predict the creditworthiness of borrowers based on various financial features.
 
-In this section, describe the analysis you completed for the machine learning models used in this Challenge. This might include:
+## Data Overview:
+The dataset included information on peer-to-peer lending, with a focus on predicting loan status (0 for healthy loans and 1 for high-risk loans).
+Key variables: loan_status, feature1, feature2, ... (additional features).
+The target variable (loan_status) had imbalanced classes, with a majority of loans being healthy.
 
-* Explain the purpose of the analysis.
-* Explain what financial information the data was on, and what you needed to predict.
-* Provide basic information about the variables you were trying to predict (e.g., `value_counts`).
-* Describe the stages of the machine learning process you went through as part of this analysis.
-* Briefly touch on any methods you used (e.g., `LogisticRegression`, or any resampling method).
+## Machine Learning Process:
+Data Splitting:
+The data was split into training and testing sets.
+Model 1 - Logistic Regression (Original Data):
+
+Logistic Regression model was fitted using the original data.
+Evaluation metrics: Accuracy, Precision, and Recall were assessed.
+Model 2 - Logistic Regression (Oversampled Data):
+
+The original data was oversampled using RandomOverSampler.
+Logistic Regression model was fitted using the oversampled data.
+Evaluation metrics: Balanced Accuracy, Precision, and Recall were assessed.
 
 ## Results
+* Model 1 - Logistic Regression (Original Data):
+  * Accuracy: 0.99
+  * Precision (Label 0): 1.00
+  * Recall (Label 0): 0.99
+  * Precision (Label 1): 0.85
+  * Recall (Label 1): 0.91
 
-Using bulleted lists, describe the balanced accuracy scores and the precision and recall scores of all machine learning models.
-
-* Machine Learning Model 1:
-  * Description of Model 1 Accuracy, Precision, and Recall scores.
-
-
-
-* Machine Learning Model 2:
-  * Description of Model 2 Accuracy, Precision, and Recall scores.
+* Model 2 - Logistic Regression (Oversampled Data):
+  * Balanced Accuracy: 0.994
+  * Precision (Label 0): 1.00
+  * Recall (Label 0): 0.99
+  * Precision (Label 1): 0.84
+  * Recall (Label 1): 0.99
 
 ## Summary
+The oversampled logistic regression model (Model 2) outperforms the original model in various metrics, particularly in handling high-risk loans (1). The balanced accuracy, precision, and recall for both labels have improved with oversampling.
 
-Summarize the results of the machine learning models, and include a recommendation on the model to use, if any. For example:
-* Which one seems to perform best? How do you know it performs best?
-* Does performance depend on the problem we are trying to solve? (For example, is it more important to predict the `1`'s, or predict the `0`'s? )
-
-If you do not recommend any of the models, please justify your reasoning.
+## Recommendation:
+Model 2 (Logistic Regression with oversampled data) is recommended for use by the company.
+The improvements in metrics, especially in handling high-risk loans, indicate enhanced predictive capabilities.
+Performance depends on the problem at hand; in this case, it is crucial to correctly identify high-risk loans (1), and Model 2 excels in this aspect.
